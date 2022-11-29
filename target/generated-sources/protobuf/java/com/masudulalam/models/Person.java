@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Person() {
     name_ = "";
+    car_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -39,6 +40,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -74,16 +76,12 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            com.masudulalam.models.Car.Builder subBuilder = null;
-            if (car_ != null) {
-              subBuilder = car_.toBuilder();
+            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+              car_ = new java.util.ArrayList<com.masudulalam.models.Car>();
+              mutable_bitField0_ |= 0x00000001;
             }
-            car_ = input.readMessage(com.masudulalam.models.Car.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(car_);
-              car_ = subBuilder.buildPartial();
-            }
-
+            car_.add(
+                input.readMessage(com.masudulalam.models.Car.parser(), extensionRegistry));
             break;
           }
           default: {
@@ -103,6 +101,9 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) != 0)) {
+        car_ = java.util.Collections.unmodifiableList(car_);
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
@@ -196,29 +197,43 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAR_FIELD_NUMBER = 4;
-  private com.masudulalam.models.Car car_;
+  private java.util.List<com.masudulalam.models.Car> car_;
   /**
-   * <code>.Car car = 4;</code>
-   * @return Whether the car field is set.
+   * <code>repeated .Car car = 4;</code>
    */
   @java.lang.Override
-  public boolean hasCar() {
-    return car_ != null;
+  public java.util.List<com.masudulalam.models.Car> getCarList() {
+    return car_;
   }
   /**
-   * <code>.Car car = 4;</code>
-   * @return The car.
+   * <code>repeated .Car car = 4;</code>
    */
   @java.lang.Override
-  public com.masudulalam.models.Car getCar() {
-    return car_ == null ? com.masudulalam.models.Car.getDefaultInstance() : car_;
+  public java.util.List<? extends com.masudulalam.models.CarOrBuilder> 
+      getCarOrBuilderList() {
+    return car_;
   }
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
   @java.lang.Override
-  public com.masudulalam.models.CarOrBuilder getCarOrBuilder() {
-    return getCar();
+  public int getCarCount() {
+    return car_.size();
+  }
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  @java.lang.Override
+  public com.masudulalam.models.Car getCar(int index) {
+    return car_.get(index);
+  }
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  @java.lang.Override
+  public com.masudulalam.models.CarOrBuilder getCarOrBuilder(
+      int index) {
+    return car_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -244,8 +259,8 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(3, getAddress());
     }
-    if (car_ != null) {
-      output.writeMessage(4, getCar());
+    for (int i = 0; i < car_.size(); i++) {
+      output.writeMessage(4, car_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -267,9 +282,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAddress());
     }
-    if (car_ != null) {
+    for (int i = 0; i < car_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, getCar());
+        .computeMessageSize(4, car_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -295,11 +310,8 @@ private static final long serialVersionUID = 0L;
       if (!getAddress()
           .equals(other.getAddress())) return false;
     }
-    if (hasCar() != other.hasCar()) return false;
-    if (hasCar()) {
-      if (!getCar()
-          .equals(other.getCar())) return false;
-    }
+    if (!getCarList()
+        .equals(other.getCarList())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -319,9 +331,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
     }
-    if (hasCar()) {
+    if (getCarCount() > 0) {
       hash = (37 * hash) + CAR_FIELD_NUMBER;
-      hash = (53 * hash) + getCar().hashCode();
+      hash = (53 * hash) + getCarList().hashCode();
     }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
@@ -451,6 +463,7 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getCarFieldBuilder();
       }
     }
     @java.lang.Override
@@ -467,10 +480,10 @@ private static final long serialVersionUID = 0L;
         addressBuilder_ = null;
       }
       if (carBuilder_ == null) {
-        car_ = null;
+        car_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
-        car_ = null;
-        carBuilder_ = null;
+        carBuilder_.clear();
       }
       return this;
     }
@@ -498,6 +511,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.masudulalam.models.Person buildPartial() {
       com.masudulalam.models.Person result = new com.masudulalam.models.Person(this);
+      int from_bitField0_ = bitField0_;
       result.name_ = name_;
       result.age_ = age_;
       if (addressBuilder_ == null) {
@@ -506,6 +520,10 @@ private static final long serialVersionUID = 0L;
         result.address_ = addressBuilder_.build();
       }
       if (carBuilder_ == null) {
+        if (((bitField0_ & 0x00000001) != 0)) {
+          car_ = java.util.Collections.unmodifiableList(car_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.car_ = car_;
       } else {
         result.car_ = carBuilder_.build();
@@ -568,8 +586,31 @@ private static final long serialVersionUID = 0L;
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
       }
-      if (other.hasCar()) {
-        mergeCar(other.getCar());
+      if (carBuilder_ == null) {
+        if (!other.car_.isEmpty()) {
+          if (car_.isEmpty()) {
+            car_ = other.car_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureCarIsMutable();
+            car_.addAll(other.car_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.car_.isEmpty()) {
+          if (carBuilder_.isEmpty()) {
+            carBuilder_.dispose();
+            carBuilder_ = null;
+            car_ = other.car_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            carBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getCarFieldBuilder() : null;
+          } else {
+            carBuilder_.addAllMessages(other.car_);
+          }
+        }
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -599,6 +640,7 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -826,118 +868,239 @@ private static final long serialVersionUID = 0L;
       return addressBuilder_;
     }
 
-    private com.masudulalam.models.Car car_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        com.masudulalam.models.Car, com.masudulalam.models.Car.Builder, com.masudulalam.models.CarOrBuilder> carBuilder_;
-    /**
-     * <code>.Car car = 4;</code>
-     * @return Whether the car field is set.
-     */
-    public boolean hasCar() {
-      return carBuilder_ != null || car_ != null;
+    private java.util.List<com.masudulalam.models.Car> car_ =
+      java.util.Collections.emptyList();
+    private void ensureCarIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        car_ = new java.util.ArrayList<com.masudulalam.models.Car>(car_);
+        bitField0_ |= 0x00000001;
+       }
     }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.masudulalam.models.Car, com.masudulalam.models.Car.Builder, com.masudulalam.models.CarOrBuilder> carBuilder_;
+
     /**
-     * <code>.Car car = 4;</code>
-     * @return The car.
+     * <code>repeated .Car car = 4;</code>
      */
-    public com.masudulalam.models.Car getCar() {
+    public java.util.List<com.masudulalam.models.Car> getCarList() {
       if (carBuilder_ == null) {
-        return car_ == null ? com.masudulalam.models.Car.getDefaultInstance() : car_;
+        return java.util.Collections.unmodifiableList(car_);
       } else {
-        return carBuilder_.getMessage();
+        return carBuilder_.getMessageList();
       }
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public Builder setCar(com.masudulalam.models.Car value) {
+    public int getCarCount() {
+      if (carBuilder_ == null) {
+        return car_.size();
+      } else {
+        return carBuilder_.getCount();
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public com.masudulalam.models.Car getCar(int index) {
+      if (carBuilder_ == null) {
+        return car_.get(index);
+      } else {
+        return carBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder setCar(
+        int index, com.masudulalam.models.Car value) {
       if (carBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
-        car_ = value;
+        ensureCarIsMutable();
+        car_.set(index, value);
         onChanged();
       } else {
-        carBuilder_.setMessage(value);
+        carBuilder_.setMessage(index, value);
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
     public Builder setCar(
+        int index, com.masudulalam.models.Car.Builder builderForValue) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        car_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        carBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(com.masudulalam.models.Car value) {
+      if (carBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCarIsMutable();
+        car_.add(value);
+        onChanged();
+      } else {
+        carBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(
+        int index, com.masudulalam.models.Car value) {
+      if (carBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureCarIsMutable();
+        car_.add(index, value);
+        onChanged();
+      } else {
+        carBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addCar(
         com.masudulalam.models.Car.Builder builderForValue) {
       if (carBuilder_ == null) {
-        car_ = builderForValue.build();
+        ensureCarIsMutable();
+        car_.add(builderForValue.build());
         onChanged();
       } else {
-        carBuilder_.setMessage(builderForValue.build());
+        carBuilder_.addMessage(builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public Builder mergeCar(com.masudulalam.models.Car value) {
+    public Builder addCar(
+        int index, com.masudulalam.models.Car.Builder builderForValue) {
       if (carBuilder_ == null) {
-        if (car_ != null) {
-          car_ =
-            com.masudulalam.models.Car.newBuilder(car_).mergeFrom(value).buildPartial();
-        } else {
-          car_ = value;
-        }
+        ensureCarIsMutable();
+        car_.add(index, builderForValue.build());
         onChanged();
       } else {
-        carBuilder_.mergeFrom(value);
+        carBuilder_.addMessage(index, builderForValue.build());
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
+     */
+    public Builder addAllCar(
+        java.lang.Iterable<? extends com.masudulalam.models.Car> values) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, car_);
+        onChanged();
+      } else {
+        carBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
      */
     public Builder clearCar() {
       if (carBuilder_ == null) {
-        car_ = null;
+        car_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
       } else {
-        car_ = null;
-        carBuilder_ = null;
+        carBuilder_.clear();
       }
-
       return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public com.masudulalam.models.Car.Builder getCarBuilder() {
-      
-      onChanged();
-      return getCarFieldBuilder().getBuilder();
+    public Builder removeCar(int index) {
+      if (carBuilder_ == null) {
+        ensureCarIsMutable();
+        car_.remove(index);
+        onChanged();
+      } else {
+        carBuilder_.remove(index);
+      }
+      return this;
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    public com.masudulalam.models.CarOrBuilder getCarOrBuilder() {
-      if (carBuilder_ != null) {
-        return carBuilder_.getMessageOrBuilder();
-      } else {
-        return car_ == null ?
-            com.masudulalam.models.Car.getDefaultInstance() : car_;
+    public com.masudulalam.models.Car.Builder getCarBuilder(
+        int index) {
+      return getCarFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public com.masudulalam.models.CarOrBuilder getCarOrBuilder(
+        int index) {
+      if (carBuilder_ == null) {
+        return car_.get(index);  } else {
+        return carBuilder_.getMessageOrBuilder(index);
       }
     }
     /**
-     * <code>.Car car = 4;</code>
+     * <code>repeated .Car car = 4;</code>
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
+    public java.util.List<? extends com.masudulalam.models.CarOrBuilder> 
+         getCarOrBuilderList() {
+      if (carBuilder_ != null) {
+        return carBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(car_);
+      }
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public com.masudulalam.models.Car.Builder addCarBuilder() {
+      return getCarFieldBuilder().addBuilder(
+          com.masudulalam.models.Car.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public com.masudulalam.models.Car.Builder addCarBuilder(
+        int index) {
+      return getCarFieldBuilder().addBuilder(
+          index, com.masudulalam.models.Car.getDefaultInstance());
+    }
+    /**
+     * <code>repeated .Car car = 4;</code>
+     */
+    public java.util.List<com.masudulalam.models.Car.Builder> 
+         getCarBuilderList() {
+      return getCarFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
         com.masudulalam.models.Car, com.masudulalam.models.Car.Builder, com.masudulalam.models.CarOrBuilder> 
         getCarFieldBuilder() {
       if (carBuilder_ == null) {
-        carBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+        carBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.masudulalam.models.Car, com.masudulalam.models.Car.Builder, com.masudulalam.models.CarOrBuilder>(
-                getCar(),
+                car_,
+                ((bitField0_ & 0x00000001) != 0),
                 getParentForChildren(),
                 isClean());
         car_ = null;

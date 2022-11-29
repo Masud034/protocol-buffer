@@ -41,17 +41,26 @@ public interface PersonOrBuilder extends
   com.masudulalam.models.AddressOrBuilder getAddressOrBuilder();
 
   /**
-   * <code>.Car car = 4;</code>
-   * @return Whether the car field is set.
+   * <code>repeated .Car car = 4;</code>
    */
-  boolean hasCar();
+  java.util.List<com.masudulalam.models.Car> 
+      getCarList();
   /**
-   * <code>.Car car = 4;</code>
-   * @return The car.
+   * <code>repeated .Car car = 4;</code>
    */
-  com.masudulalam.models.Car getCar();
+  com.masudulalam.models.Car getCar(int index);
   /**
-   * <code>.Car car = 4;</code>
+   * <code>repeated .Car car = 4;</code>
    */
-  com.masudulalam.models.CarOrBuilder getCarOrBuilder();
+  int getCarCount();
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  java.util.List<? extends com.masudulalam.models.CarOrBuilder> 
+      getCarOrBuilderList();
+  /**
+   * <code>repeated .Car car = 4;</code>
+   */
+  com.masudulalam.models.CarOrBuilder getCarOrBuilder(
+      int index);
 }

@@ -12,10 +12,17 @@ public class CompositionDemo {
                 .setCity("Dhaka")
                 .setPostCode(1216)
                 .build();
-        Car car = Car
+        Car v8 = Car
                 .newBuilder()
                 .setMake("Toyota")
                 .setModel("V8")
+                .setYear(2020)
+                .build();
+
+        Car accord = Car
+                .newBuilder()
+                .setMake("Honda")
+                .setModel("accord")
                 .setYear(2020)
                 .build();
 
@@ -24,7 +31,8 @@ public class CompositionDemo {
                 .setName("Masudul Alam")
                 .setAge(10)
                 .setAddress(address)
-                .setCar(car)
+                .addCar(v8)
+                .addCar(accord)
                 .build();
 
         System.out.println(person);
