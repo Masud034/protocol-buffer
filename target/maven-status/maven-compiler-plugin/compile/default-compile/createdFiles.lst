@@ -1,9 +1,15 @@
+org/example/Main.class
+com/masudulalam/models/Dealer$1.class
 com/masudulalam/models/Address$Builder.class
 com/masudulalam/models/Car.class
 com/masudulalam/models/PersonOrBuilder.class
 com/masudulalam/models/Address$1.class
 com/masudulalam/models/Address.class
+com/masudulalam/models/Dealer$ModelDefaultEntryHolder.class
 com/masudulalam/models/Car$1.class
 com/masudulalam/models/Car$Builder.class
 com/masudulalam/models/AddressOrBuilder.class
+com/masudulalam/models/Dealer$Builder.class
+com/masudulalam/models/Dealer.class
 com/masudulalam/models/CarOrBuilder.class
+com/masudulalam/models/DealerOrBuilder.class
