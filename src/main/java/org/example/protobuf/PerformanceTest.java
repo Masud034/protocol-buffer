@@ -41,14 +41,17 @@ public class PerformanceTest {
         };
 
         //run performance test
-        runPerformanceTest(json, "json");
-        runPerformanceTest(protobuf, "protobuff");
+        for (int i = 0; i < 5; i++) {
+            runPerformanceTest(json, "json");
+            runPerformanceTest(protobuf, "protobuff");
+            System.out.println();
+        }
     }
 
     private static void runPerformanceTest(Runnable runnable, String method) {
         long startTime = System.currentTimeMillis();
 
-        for (int i = 0; i < 1_000_000; i++) {
+        for (int i = 0; i < 5_000_000; i++) {
             runnable.run();
         }
         long endTime = System.currentTimeMillis();
