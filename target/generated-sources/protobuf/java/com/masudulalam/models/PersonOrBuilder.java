@@ -24,4 +24,34 @@ public interface PersonOrBuilder extends
    * @return The age.
    */
   int getAge();
+
+  /**
+   * <code>.Address address = 3;</code>
+   * @return Whether the address field is set.
+   */
+  boolean hasAddress();
+  /**
+   * <code>.Address address = 3;</code>
+   * @return The address.
+   */
+  com.masudulalam.models.Address getAddress();
+  /**
+   * <code>.Address address = 3;</code>
+   */
+  com.masudulalam.models.AddressOrBuilder getAddressOrBuilder();
+
+  /**
+   * <code>.Car car = 4;</code>
+   * @return Whether the car field is set.
+   */
+  boolean hasCar();
+  /**
+   * <code>.Car car = 4;</code>
+   * @return The car.
+   */
+  com.masudulalam.models.Car getCar();
+  /**
+   * <code>.Car car = 4;</code>
+   */
+  com.masudulalam.models.CarOrBuilder getCarOrBuilder();
 }
