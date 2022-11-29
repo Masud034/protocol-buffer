@@ -36,4 +36,15 @@ public interface CarOrBuilder extends
    * @return The year.
    */
   int getYear();
+
+  /**
+   * <code>.BodyType bodyType = 4;</code>
+   * @return The enum numeric value on the wire for bodyType.
+   */
+  int getBodyTypeValue();
+  /**
+   * <code>.BodyType bodyType = 4;</code>
+   * @return The bodyType.
+   */
+  com.masudulalam.models.BodyType getBodyType();
 }

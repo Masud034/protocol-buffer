@@ -18,6 +18,7 @@ private static final long serialVersionUID = 0L;
   private Car() {
     make_ = "";
     model_ = "";
+    bodyType_ = 0;
   }
 
   @java.lang.Override
@@ -65,6 +66,12 @@ private static final long serialVersionUID = 0L;
           case 24: {
 
             year_ = input.readInt32();
+            break;
+          }
+          case 32: {
+            int rawValue = input.readEnum();
+
+            bodyType_ = rawValue;
             break;
           }
           default: {
@@ -188,6 +195,25 @@ private static final long serialVersionUID = 0L;
     return year_;
   }
 
+  public static final int BODYTYPE_FIELD_NUMBER = 4;
+  private int bodyType_;
+  /**
+   * <code>.BodyType bodyType = 4;</code>
+   * @return The enum numeric value on the wire for bodyType.
+   */
+  @java.lang.Override public int getBodyTypeValue() {
+    return bodyType_;
+  }
+  /**
+   * <code>.BodyType bodyType = 4;</code>
+   * @return The bodyType.
+   */
+  @java.lang.Override public com.masudulalam.models.BodyType getBodyType() {
+    @SuppressWarnings("deprecation")
+    com.masudulalam.models.BodyType result = com.masudulalam.models.BodyType.valueOf(bodyType_);
+    return result == null ? com.masudulalam.models.BodyType.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -211,6 +237,9 @@ private static final long serialVersionUID = 0L;
     if (year_ != 0) {
       output.writeInt32(3, year_);
     }
+    if (bodyType_ != com.masudulalam.models.BodyType.UNKNOWN.getNumber()) {
+      output.writeEnum(4, bodyType_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -229,6 +258,10 @@ private static final long serialVersionUID = 0L;
     if (year_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, year_);
+    }
+    if (bodyType_ != com.masudulalam.models.BodyType.UNKNOWN.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, bodyType_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -251,6 +284,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getModel())) return false;
     if (getYear()
         != other.getYear()) return false;
+    if (bodyType_ != other.bodyType_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -268,6 +302,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getModel().hashCode();
     hash = (37 * hash) + YEAR_FIELD_NUMBER;
     hash = (53 * hash) + getYear();
+    hash = (37 * hash) + BODYTYPE_FIELD_NUMBER;
+    hash = (53 * hash) + bodyType_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -407,6 +443,8 @@ private static final long serialVersionUID = 0L;
 
       year_ = 0;
 
+      bodyType_ = 0;
+
       return this;
     }
 
@@ -436,6 +474,7 @@ private static final long serialVersionUID = 0L;
       result.make_ = make_;
       result.model_ = model_;
       result.year_ = year_;
+      result.bodyType_ = bodyType_;
       onBuilt();
       return result;
     }
@@ -494,6 +533,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.getYear() != 0) {
         setYear(other.getYear());
+      }
+      if (other.bodyType_ != 0) {
+        setBodyTypeValue(other.getBodyTypeValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -703,6 +745,60 @@ private static final long serialVersionUID = 0L;
     public Builder clearYear() {
       
       year_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int bodyType_ = 0;
+    /**
+     * <code>.BodyType bodyType = 4;</code>
+     * @return The enum numeric value on the wire for bodyType.
+     */
+    @java.lang.Override public int getBodyTypeValue() {
+      return bodyType_;
+    }
+    /**
+     * <code>.BodyType bodyType = 4;</code>
+     * @param value The enum numeric value on the wire for bodyType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBodyTypeValue(int value) {
+      
+      bodyType_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.BodyType bodyType = 4;</code>
+     * @return The bodyType.
+     */
+    @java.lang.Override
+    public com.masudulalam.models.BodyType getBodyType() {
+      @SuppressWarnings("deprecation")
+      com.masudulalam.models.BodyType result = com.masudulalam.models.BodyType.valueOf(bodyType_);
+      return result == null ? com.masudulalam.models.BodyType.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.BodyType bodyType = 4;</code>
+     * @param value The bodyType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setBodyType(com.masudulalam.models.BodyType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      bodyType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.BodyType bodyType = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearBodyType() {
+      
+      bodyType_ = 0;
       onChanged();
       return this;
     }
