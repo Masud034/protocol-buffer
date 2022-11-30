@@ -1,37 +1,14 @@
-syntax = 'proto3';
+syntax = "proto3";
 
 option java_multiple_files=true;
+option java_package="com.masudulalam.models";
+import "common/car.proto";
+import "common/address.proto";
 
-option java_package='com.masudulalam.models';
-
-message Address {
-  int32 post_code = 1;
-  string street = 2;
-  string city = 3;
-}
-
-message Car {
-  string make = 1;
-  string model = 2;
-  int32 year = 3;
-  BodyType bodyType = 4;
-}
 
 message Person {
   string name = 1;
   int32 age = 2;
-  Address address = 3;
-  repeated Car car = 4;
-}
-
-message Dealer {
-  map<int32, Car> model = 1;
-}
-
-enum BodyType {
-  //default value -> first one
-  UNKNOWN = 0;
-  SEDAN = 1;
-  COUPE = 2;
-  SUV = 3;
+  common.Address address = 3;
+  repeated common.Car car = 4;
 }
